@@ -7,26 +7,27 @@ body {
   color: #f4f4f4;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensures the body takes up at least the full viewport height */
+  min-height: 100vh; /* Ensures the body takes up the full height of the viewport */
 }
 
-/* Header and Navigation */
 header {
-  flex-shrink: 0; /* Ensures the header doesn't shrink */
+  flex-shrink: 0; /* Ensures the header stays fixed at the top */
 }
 
 main {
-  flex: 1; /* Makes the content area grow and fill available space */
+  flex: 1; /* Ensures main content grows and pushes the footer down */
   padding: 20px;
   text-align: center;
 }
 
 footer {
-  flex-shrink: 0; /* Ensures the footer remains at the bottom */
+  flex-shrink: 0; /* Ensures the footer stays at the bottom */
+  width: 100%;
   background: rgba(15, 15, 15, 0.95);
   color: #bbb;
   text-align: center;
   padding: 10px 0;
+  position: relative; /* Default position to stay at the page's bottom */
 }
 
 footer p {
@@ -34,7 +35,7 @@ footer p {
   font-size: 0.9rem;
 }
 
-/* Other Styles */
+/* Typography */
 h1 {
   font-size: 2rem;
   color: #f50057;
@@ -48,6 +49,7 @@ p {
   color: #bbb;
 }
 
+/* Navigation Menu */
 nav {
   position: fixed;
   top: 0;
@@ -60,6 +62,7 @@ nav {
   justify-content: center;
   align-items: center;
   transition: 0.5s;
+  z-index: 1000;
 }
 
 nav a {
@@ -67,6 +70,7 @@ nav a {
   text-decoration: none;
   font-size: 1.2rem;
   margin: 15px 0;
+  transition: 0.3s;
 }
 
 nav a:hover {
@@ -81,6 +85,14 @@ nav a:hover {
 @media (max-width: 768px) {
   nav {
     width: 100%;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 0.9rem;
   }
 }
 
