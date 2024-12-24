@@ -1,24 +1,21 @@
 // Toggle Menu
 function toggleMenu() {
-  const menu = document.getElementById("menu");
-  menu.classList.toggle("active");
+  const menu = document.getElementById('menu');
+  menu.classList.toggle('active');
 }
 
-// Page Navigation
-document.querySelectorAll("nav a").forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute("href"));
-
-    // Hide all pages
-    document.querySelectorAll(".page").forEach((page) => {
-      page.classList.remove("active");
+// Page Navigation Logic
+document.querySelectorAll('nav a').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    const targetId = event.target.getAttribute('href').slice(1);
+    document.querySelectorAll('.page').forEach((page) => {
+      page.classList.remove('active');
     });
+    document.getElementById(targetId).classList.add('active');
 
-    // Show the selected page
-    target.classList.add("active");
-
-    // Close menu
-    document.getElementById("menu").classList.remove("active");
+    // Close the menu after navigation on mobile
+    const menu = document.getElementById('menu');
+    menu.classList.remove('active');
   });
 });
